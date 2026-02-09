@@ -1,0 +1,27 @@
+ChatLayout:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        TextInput:
+            text: root.chat_history
+            readonly: True
+            size_hint_y: None
+            height: self.minimum_height
+            background_color: (0.1, 0.1, 0.1, 1)
+            foreground_color: (1, 1, 1, 1)
+
+    BoxLayout:
+        size_hint_y: None
+        height: "50dp"
+        spacing: 5
+
+        TextInput:
+            id: user_input
+            multiline: False
+            hint_text: "پیام خود را بنویسید..."
+
+        Button:
+            text: "ارسال"
+            on_press: root.send_message(user_input.text)
